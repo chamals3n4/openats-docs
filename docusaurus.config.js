@@ -60,7 +60,7 @@ const config = {
       image: "img/docusaurus-social-card.jpg",
       colorMode: {
         defaultMode: "dark",
-        disableSwitch: true,
+        disableSwitch: false,
         respectPrefersColorScheme: false,
       },
       navbar: {
@@ -98,7 +98,7 @@ const config = {
         ],
       },
       prism: {
-        theme: prismThemes.dracula,
+        theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
     }),
