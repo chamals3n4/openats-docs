@@ -1,0 +1,209 @@
+---
+sidebar_position: 4
+---
+
+# Local Development
+
+This guide is intended for developers who want to contribute to OpenATS, build new features, fix bugs, or customize the platform.
+
+## Fork the Repository
+
+Before making changes, fork the OpenATS repository to your own GitHub account.
+
+1. Navigate to the OpenATS GitHub repository.
+2. Click **Fork** in the top-right corner.
+3. Create a fork under your GitHub account.
+
+## Clone Your Fork
+
+Clone your fork locally:
+
+```bash
+git clone https://github.com/<your-username>/OpenATS.git
+cd openats
+```
+
+Add the original repository as an upstream remote:
+
+```bash
+git remote add upstream https://github.com/chamals3n4/OpenATS.git
+```
+
+Verify your remotes:
+
+```bash
+git remote -v
+```
+
+---
+
+## Repository Structure
+
+OpenATS is organized as a multi-application repository.
+
+```text
+OpenATS/
+├── frontend/   # Next.js application
+├── backend/    # Express API
+└── ...
+```
+
+### Frontend (`frontend`)
+
+The frontend is built with:
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
+
+### Backend (`backend`)
+
+The backend provides:
+
+* Authentication and authorization
+* Candidate management
+* Hiring process management
+* Assessments and evaluations
+* File storage integrations
+* Notifications and external integrations
+
+---
+
+## Install Dependencies
+
+From the repository root:
+
+```bash
+pnpm install
+```
+
+---
+
+## Configure Environment Variables
+
+### Backend
+
+```bash
+cp backend/.env.example backend/.env
+```
+
+### Frontend
+
+```bash
+cp frontend/.env.example frontend/.env.local
+```
+
+Configure the values according to the Environment Configuration guide.
+
+---
+
+## Database Setup
+
+Ensure PostgreSQL is running and your `DATABASE_URL` is configured correctly.
+
+Example:
+
+```env
+DATABASE_URL=postgresql://username:password@localhost:5432/openats
+```
+
+---
+
+## Run the Backend
+
+Open a terminal:
+
+```bash
+cd backend
+pnpm dev
+```
+
+The API will be available at:
+
+```text
+http://localhost:8080
+```
+
+---
+
+## Run the Frontend
+
+Open a new terminal:
+
+```bash
+cd frontend
+pnpm dev
+```
+
+The application will be available at:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## Create a Development Branch
+
+Before making changes, create a new branch:
+
+```bash
+git checkout -b feature/your-feature-name
+```
+
+Examples:
+
+```bash
+git checkout -b feature/candidate-filters
+git checkout -b feature/pipeline-improvements
+git checkout -b fix/login-redirect
+```
+
+---
+
+## Keep Your Fork Updated
+
+Fetch the latest changes from the main repository:
+
+```bash
+git fetch upstream
+git checkout main
+git merge upstream/main
+```
+
+---
+
+## Submit Your Changes
+
+Commit your work:
+
+```bash
+git add .
+git commit -m "feat: add candidate filtering"
+```
+
+Push your branch:
+
+```bash
+git push origin feature/candidate-filters
+```
+
+Open a Pull Request from your fork to the OpenATS main repository.
+
+---
+
+## Code Style
+
+When contributing to OpenATS:
+
+* Follow existing coding conventions
+* Keep changes focused and scoped
+* Write meaningful commit messages
+* Test changes before submitting
+* Update documentation when necessary
+
+## Next Steps
+
+Once your development environment is running successfully, review the Contributing Guide for pull request requirements, code review expectations, and community guidelines.

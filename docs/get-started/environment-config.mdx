@@ -1,0 +1,150 @@
+---
+sidebar_position: 2
+---
+
+# Environment Configuration
+
+OpenATS requires environment variables for authentication, storage, email delivery, AI features, and external integrations.
+
+Copy the example files below and replace the placeholder values with your own configuration.
+
+## Backend Environment
+
+Create:
+
+```bash
+backend/.env
+```
+
+```env
+DATABASE_URL=postgresql://username:password@localhost:5432/openats
+
+R2_ENDPOINT=
+R2_ACCESS_KEY_ID=
+R2_SECRET_ACCESS_KEY=
+R2_BUCKET_NAME=
+R2_PUBLIC_URL=
+
+RESEND_API_KEY=
+RESEND_FROM_EMAIL=
+
+ASGARDEO_JWKS_URL=
+ASGARDEO_ISSUER=
+
+GEMINI_API_KEY=
+
+PORT=8080
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_REDIRECT_URI=
+
+GOOGLE_SERVICE_ACCOUNT_JSON=
+GOOGLE_CALENDAR_ID=
+```
+
+## Frontend Environment
+
+Create:
+
+```bash
+web/.env.local
+```
+
+```env
+NEXT_PUBLIC_ASGARDEO_BASE_URL=""
+NEXT_PUBLIC_ASGARDEO_CLIENT_ID=""
+ASGARDEO_CLIENT_SECRET=""
+
+NEXT_PUBLIC_ASGARDEO_SCOPES="openid profile email offline_access internal_role_mgt_delete internal_role_mgt_groups_update internal_role_mgt_meta_create internal_role_mgt_meta_update internal_role_mgt_users_update internal_role_mgt_view internal_user_mgt_create internal_user_mgt_delete internal_user_mgt_list internal_user_mgt_update internal_user_mgt_view"
+
+ASGARDEO_SECRET=""
+ASGARDEO_CLIENT_ID=""
+
+NEXT_PUBLIC_ASGARDEO_SIGN_IN_URL=""
+
+ASGARDEO_SUPER_ADMIN_ROLE_ID=""
+ASGARDEO_HIRING_MANAGER_ROLE_ID=""
+ASGARDEO_INTERVIEWER_ROLE_ID=""
+
+OPENATS_API_URL=http://localhost:8080
+NEXT_PUBLIC_API_URL=http://localhost:8080
+```
+
+## Variable Reference
+
+### Database
+
+| Variable | Description |
+|-----------|-------------|
+| `DATABASE_URL` | PostgreSQL database connection string |
+
+### Cloudflare R2
+
+| Variable | Description |
+|-----------|-------------|
+| `R2_ENDPOINT` | R2 bucket endpoint URL |
+| `R2_ACCESS_KEY_ID` | R2 access key |
+| `R2_SECRET_ACCESS_KEY` | R2 secret key |
+| `R2_BUCKET_NAME` | Bucket name used for file storage |
+| `R2_PUBLIC_URL` | Public URL used to access uploaded files |
+
+### Email
+
+| Variable | Description |
+|-----------|-------------|
+| `RESEND_API_KEY` | Resend API key |
+| `RESEND_FROM_EMAIL` | Verified sender email address |
+
+### Asgardeo (Backend)
+
+| Variable | Description |
+|-----------|-------------|
+| `ASGARDEO_JWKS_URL` | JWKS endpoint used to validate tokens |
+| `ASGARDEO_ISSUER` | Asgardeo issuer URL |
+
+### AI
+
+| Variable | Description |
+|-----------|-------------|
+| `GEMINI_API_KEY` | Gemini API key used for AI features |
+
+### Google Calendar
+
+| Variable | Description |
+|-----------|-------------|
+| `GOOGLE_CLIENT_ID` | Google OAuth client ID |
+| `GOOGLE_CLIENT_SECRET` | Google OAuth client secret |
+| `GOOGLE_REDIRECT_URI` | OAuth redirect URI |
+| `GOOGLE_SERVICE_ACCOUNT_JSON` | Service account credentials |
+| `GOOGLE_CALENDAR_ID` | Calendar identifier |
+
+### Asgardeo (Frontend)
+
+| Variable | Description |
+|-----------|-------------|
+| `NEXT_PUBLIC_ASGARDEO_BASE_URL` | Asgardeo tenant base URL |
+| `NEXT_PUBLIC_ASGARDEO_CLIENT_ID` | SPA application client ID |
+| `ASGARDEO_CLIENT_SECRET` | Application client secret |
+| `ASGARDEO_SECRET` | Secret used by authentication layer |
+| `ASGARDEO_CLIENT_ID` | Internal application client ID |
+| `NEXT_PUBLIC_ASGARDEO_SIGN_IN_URL` | Authentication sign-in URL |
+
+### Role Configuration
+
+| Variable | Description |
+|-----------|-------------|
+| `ASGARDEO_SUPER_ADMIN_ROLE_ID` | Super Admin role ID |
+| `ASGARDEO_HIRING_MANAGER_ROLE_ID` | Hiring Manager role ID |
+| `ASGARDEO_INTERVIEWER_ROLE_ID` | Interviewer role ID |
+
+### API Configuration
+
+| Variable | Description |
+|-----------|-------------|
+| `OPENATS_API_URL` | Backend API URL |
+| `NEXT_PUBLIC_API_URL` | Public API URL exposed to the frontend |
+
+## Next Steps
+
+After configuring the environment variables, continue to the Quick Start guide.

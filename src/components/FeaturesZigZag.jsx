@@ -1,49 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 
 const sectionData = [
   {
-    badge: "Centralized Data",
-    title: "All candidate information and interactions in one place",
+    title: "Manage Every Candidate in One Place",
     description:
-      "Manage candidate communications, scheduling interviews and task management all on OpenATS. Work on Candidate profiles and collaborate on all hiring decisions — centrally organized in the database.",
-    ctaText: "Start trial",
-    ctaLink: "/docs/intro",
-    imageSrc: "/img/candidate-dashboard-mock.png",
+      "Access complete candidate profiles with resumes, hiring history, notes, activity timelines, and application details. Give recruiters and hiring managers a single source of truth throughout the entire hiring journey.",
+    imageSrc: "/img/candidate-profile.png",
     imageAlt: "Candidate information workspace dashboard overview",
   },
   {
-    badge: "Smart Sourcing",
-    title: "Track talent pools before positions even open",
+    title: "Design Hiring Processes That Fit Your Team",
     description:
-      "Build structured pipelines for future roles. Group potential candidates by skill tags, experience levels, and past application touchpoints without losing crucial communication history.",
-    ctaText: "Explore Sourcing",
-    ctaLink: "/docs/intro",
-    imageSrc: "/img/talent-pool-mock.png",
+      "Create custom hiring workflows with stages, evaluations, interview rounds, and approval steps tailored to your recruitment strategy. Adapt every process to match how your organization hires.",
+    imageSrc: "/img/hiring-process.png",
     imageAlt: "Talent pooling database preview",
   },
   {
-    badge: "Automated Workflows",
-    title: "Move candidates through stages effortlessly",
+    title: "Track Hiring Progress with Visual Pipelines",
     description:
-      "Configure trigger actions that send emails, assign screening evaluations, or schedule live code reviews the moment a candidate card crosses into a new phase of your pipeline matrix.",
-    ctaText: "See automation rules",
-    ctaLink: "/docs/intro",
-    imageSrc: "/img/automation-pipeline-mock.png",
+      "Monitor candidate movement across every stage with a clear drag-and-drop pipeline view. Identify bottlenecks, manage workload, and keep hiring efforts moving forward.",
+    imageSrc: "/img/pipeline.png",
     imageAlt: "Workflow trigger setup layout screen",
   },
   {
-    badge: "Collaborative Reviews",
-    title: "Gather transparent team alignment instantly",
+    title: "Make Better Decisions with Structured Assessments",
     description:
-      "Let interview loops leave standardized scorecards, hidden notes, and thumbs-up votes securely. Centralized reviews remove confirmation bias and help teams make fast, fair decisions.",
-    ctaText: "Learn more",
-    ctaLink: "/docs/intro",
-    imageSrc: "/img/scorecard-collaboration-mock.png",
+      "Evaluate candidates using customizable scorecards, interview feedback, and standardized evaluation criteria. Ensure fair, consistent, and data-driven hiring decisions across teams.",
+    imageSrc: "/img/assessments.png",
     imageAlt: "Team hiring scorecard evaluation pane",
   },
 ];
 
 export default function FeaturesZigZag() {
+  const [activeImage, setActiveImage] = useState(null);
+
   return (
     <section className="zigzag-section">
       <div className="zigzag-container">
@@ -57,32 +47,54 @@ export default function FeaturesZigZag() {
             >
               {/* Media Column */}
               <div className="zigzag-media-panel">
-                <div className="zigzag-window-mock">
+                <button
+                  type="button"
+                  className="zigzag-window-mock"
+                  onClick={() => setActiveImage(item)}
+                  aria-label="Open larger preview"
+                >
                   <img
                     src={item.imageSrc}
                     alt={item.imageAlt}
                     className="zigzag-image"
                   />
-                </div>
+                </button>
               </div>
 
               {/* Text Content Column */}
               <div className="zigzag-content-panel">
-                <div className="zigzag-badge-wrapper">
-                  <span className="zigzag-badge">{item.badge}</span>
-                </div>
                 <h2>{item.title}</h2>
                 <p>{item.description}</p>
-                {item.ctaText && (
-                  <a href={item.ctaLink} className="zigzag-cta-trigger">
-                    {item.ctaText}
-                  </a>
-                )}
               </div>
             </div>
           );
         })}
       </div>
+
+      {activeImage && (
+        <div
+          className="zigzag-image-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label={activeImage.imageAlt}
+          onClick={() => setActiveImage(null)}
+        >
+          <button
+            type="button"
+            className="zigzag-image-modal-close"
+            onClick={() => setActiveImage(null)}
+            aria-label="Close image preview"
+          >
+            x
+          </button>
+          <img
+            src={activeImage.imageSrc}
+            alt={activeImage.imageAlt}
+            className="zigzag-image-modal-img"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 }

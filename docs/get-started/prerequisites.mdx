@@ -1,0 +1,143 @@
+---
+sidebar_position: 1
+---
+
+# Prerequisites
+
+Before setting up OpenATS, make sure that your local environment meets the following requirements.
+
+## System Requirements
+
+Install the following software on your machine:
+
+### Required
+
+* Git
+* Node.js 20 or later
+* pnpm
+* PostgreSQL 16 or later
+
+### Recommended
+
+* Visual Studio Code
+* Docker and Docker Compose
+
+## Required External Services
+
+OpenATS integrates with several external services to provide authentication, file storage, email delivery, AI-powered features, and calendar integrations.
+
+Depending on your deployment requirements, you may need access to:
+
+| Service       | Purpose                              |
+| ------------- | ------------------------------------ |
+| PostgreSQL    | Application database                 |
+| Asgardeo      | Authentication and user management   |
+| Cloudflare R2 | Resume and file storage              |
+| Resend        | Email notifications                  |
+| Gemini API    | AI-powered candidate insights        |
+| Google OAuth  | Calendar and scheduling integrations |
+
+## Asgardeo Setup
+
+OpenATS uses WSO2 Asgardeo as its identity and access management layer.
+
+Before running OpenATS, create a free Asgardeo account and configure an application for OpenATS.
+
+### Step 1: Create an Asgardeo Account
+
+1. Sign up for an Asgardeo account.
+2. Create a new organization if required.
+3. Access the Asgardeo Console.
+
+### Step 2: Create an Application
+
+Create a new Single Page Application (SPA) for OpenATS.
+
+Configure:
+
+* Application Name: OpenATS
+* Allowed Redirect URLs
+* Allowed Logout URLs
+* Allowed Origins
+
+### Step 3: Configure Authentication
+
+OpenATS requires OpenID Connect (OIDC) authentication.
+
+Record the following values:
+
+* Client ID
+* Client Secret
+* Issuer URL
+* Sign-In URL
+* JWKS URL
+
+These values will be used in the OpenATS environment configuration.
+
+### Step 4: Create OpenATS Roles
+
+Create the required application roles:
+
+* Super Admin
+* Hiring Manager
+* Interviewer
+
+After creating the roles, record their role IDs for the OpenATS frontend configuration.
+
+### Step 5: Configure Scopes
+
+Ensure the application has access to the required OpenID Connect scopes and management APIs used by OpenATS for user and role management.
+
+## Cloudflare R2 Setup
+
+OpenATS uses Cloudflare R2 for storing resumes, attachments, and candidate-related files.
+
+Create:
+
+* R2 Bucket
+* Access Key
+* Secret Key
+
+Record:
+
+* Endpoint URL
+* Bucket Name
+* Public URL
+
+## Resend Setup
+
+OpenATS uses Resend for sending system emails and notifications.
+
+Create a Resend account and generate an API key.
+
+Record:
+
+* API Key
+* Verified Sender Email Address
+
+## Gemini API Setup
+
+OpenATS uses Google's Gemini models for AI-powered recruitment features.
+
+Create a Gemini API key and keep it available for environment configuration.
+
+## Google Integration Setup
+
+If you plan to use calendar and scheduling features:
+
+1. Create a Google Cloud Project.
+2. Enable the Google Calendar API.
+3. Configure OAuth credentials.
+4. Create a service account if required.
+
+Record:
+
+* Client ID
+* Client Secret
+* Redirect URI
+* Service Account Credentials
+* Calendar ID
+
+## Next Steps
+
+After completing all prerequisites, continue to the Quick Start guide to run OpenATS for the first time.

@@ -1,46 +1,55 @@
 import React from "react";
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  AiFileIcon,
+  CalendarUserIcon,
+  JobSearchIcon,
+  TeamWorkIcon,
+  UserSearch02Icon,
+  WebDesign02Icon,
+} from "@hugeicons/core-free-icons";
 import FAQSection from "@site/src/components/FAQSection";
 import FeaturesZigZag from "@site/src/components/FeaturesZigZag";
 import FooterLayout from "@site/src/components/FooterLayout";
 
 const featuresList = [
   {
-    icon: "📂",
-    title: "Job & Requisition Management",
+    icon: JobSearchIcon,
+    title: "Job Management",
     description:
-      "Create, manage, and publish job openings with structured details and requirements in one place.",
+      "Create, organize, and manage job openings with structured requirements, departments, and hiring workflows.",
   },
   {
-    icon: "📊",
-    title: "Hiring Pipeline",
+    icon: UserSearch02Icon,
+    title: "Candidate Tracking",
     description:
-      "Organize your hiring process with customizable stages and track candidates through each step.",
+      "Track applicants through every stage of the hiring process with a clear and customizable recruitment pipeline.",
   },
   {
-    icon: "📝",
-    title: "Built-in Assessments",
+    icon: CalendarUserIcon,
+    title: "Interview Management",
     description:
-      "Create and assign assessments to candidates at each stage and evaluate them consistently.",
+      "Schedule interviews, collect feedback, and keep everyone aligned throughout the candidate evaluation process.",
   },
   {
-    icon: "🧠",
-    title: "AI CV Parsing",
+    icon: AiFileIcon,
+    title: "AI Resume Parsing",
     description:
-      "Automatically extract and organize candidate data from resumes using AI integrations.",
+      "Automatically extract and organize candidate information from resumes to save time and reduce manual work.",
   },
   {
-    icon: "🤝",
-    title: "Collaboration & Offers",
+    icon: TeamWorkIcon,
+    title: "Team Collaboration",
     description:
-      "Share feedback, track interview decisions, and manage offers with your team seamlessly.",
+      "Collaborate on hiring decisions with shared feedback, candidate reviews, and streamlined communication.",
   },
   {
-    icon: "⚡",
+    icon: WebDesign02Icon,
     title: "Career Page Builder",
     description:
-      "Build your own custom career page to match your brand and layout without extra code.",
+      "Build your career page that showcase opportunities and attract the right candidates to your organization.",
   },
 ];
 
@@ -55,13 +64,19 @@ export default function Home() {
         {/* Premium Grid Mask Hero Section */}
         <header className="custom-hero">
           <div className="container">
-            <h1>Build AI agents with a powerful Voice API</h1>
-            <p>Unlock the power of voice with OpenATS</p>
+            <h1>
+              <span>Open-Source Hiring Infrastructure</span>
+              <span>for Growing Teams</span>
+            </h1>
+            <p>
+              OpenATS is an open-source hiring platform that helps teams
+              streamline recruitment, automate workflows, and hire faster.
+            </p>
             <div className="hero-btn-container">
               <Link className="btn-pill-primary" to="/docs/intro">
                 Get started
               </Link>
-              <Link className="btn-pill-secondary" to="/docs/intro">
+              <Link className="btn-pill-secondary" to="#">
                 Get a demo
               </Link>
             </div>
@@ -71,16 +86,25 @@ export default function Home() {
         {/* 3-Column Clean Border Line Layout Grid */}
         <section className="usecases-section">
           <h2 className="section-main-title">
-            One solution, unlimited use-cases
+            Everything You Need to Hire Better
           </h2>
           <p className="section-subtitle">
-            Here's what sets our tracking system apart
+            From job creation to candidate evaluation and hiring decisions,
+            OpenATS provides the tools your team needs to build a faster, more
+            organized recruitment process.
           </p>
 
           <div className="usecases-grid">
             {featuresList.map((item, idx) => (
               <div key={idx} className="usecase-card">
-                <div className="usecase-icon-wrapper">{item.icon}</div>
+                <div className="usecase-icon-wrapper">
+                  <HugeiconsIcon
+                    icon={item.icon}
+                    size={28}
+                    color="currentColor"
+                    strokeWidth={1.6}
+                  />
+                </div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </div>

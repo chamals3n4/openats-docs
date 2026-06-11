@@ -1,4 +1,3 @@
-// @ts-check
 import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
@@ -24,7 +23,6 @@ const config = {
     locales: ["en"],
   },
 
-  // Embeds the Figtree font directly into the HTML <head>
   headTags: [
     {
       tagName: "style",
@@ -65,12 +63,6 @@ const config = {
       },
       navbar: {
         title: "OpenATS",
-        logo: {
-          alt: "OpenATS Logo",
-          src: "img/logo.svg",
-          width: 32,
-          height: 32,
-        },
         items: [
           {
             type: "docSidebar",
@@ -84,7 +76,7 @@ const config = {
             position: "right",
           },
           {
-            href: "https://github.com/OpenATS",
+            href: "https://github.com/chamals3n4/OpenATS",
             position: "right",
             className: "header-github-link",
             "aria-label": "GitHub repository",

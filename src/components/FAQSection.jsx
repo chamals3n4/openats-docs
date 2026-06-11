@@ -2,29 +2,29 @@ import React, { useState } from "react";
 
 const faqData = [
   {
-    question: "What is included in the OpenATS self-hosted version?",
+    question: "Is OpenATS free to use?",
     answer:
-      "Each template comes with a unique set of pages, components, font styles, color styles, and CMS collections for easy editing. The number of pages and CMS collections will be specified in the template page. Our templates are designed and built straight within Framer and we do not provide Figma files with the template. We also provide a set of general and template-specific tutorials for our customers to help with customization.",
+      "Yes. OpenATS is an open-source project and can be self-hosted at no cost. Organizations have full access to the source code and can customize the platform to fit their recruitment needs.",
   },
   {
-    question: "Do I need a paid license to use it commercially?",
+    question: "Can I customize OpenATS for my organization?",
     answer:
-      "OpenATS is licensed under open-source terms. You can deploy it locally or on your own private cloud infrastructure for internal business usage without requiring standard subscription fees.",
+      "Absolutely. OpenATS is designed to be flexible and extensible, allowing teams to customize hiring workflows, recruitment processes, integrations, and user experiences according to their requirements.",
   },
   {
-    question: "Do I need advanced technical skills to customize the templates?",
+    question: "Does OpenATS support different hiring workflows?",
     answer:
-      "Basic terminal command knowledge helps for setup, but configuration remains straightforward. Our modular file system ensures changing brand rules, logo placements, or global inputs is painless.",
+      "Yes. OpenATS allows organizations to create custom hiring processes with configurable stages, assessments, and evaluation workflows. Each team can adapt the platform to match its hiring strategy.",
   },
   {
-    question: "Is the original UI/UX design file available?",
+    question: "Who is OpenATS built for?",
     answer:
-      "Yes, community designers maintain official Figma component variants within our primary design system repository for rapid layout planning.",
+      "OpenATS is suitable for startups, growing companies, recruitment teams, educational institutions, and organizations that want greater control and ownership over their hiring operations.",
   },
   {
-    question: "Can our team integrate custom background verification systems?",
+    question: "Can I contribute to OpenATS?",
     answer:
-      "Absolutely. Because you control the entire source system, your engineering team can connect internal tools directly to our core webhooks or candidate event framework.",
+      "Yes. OpenATS is community-driven and welcomes contributions from developers, designers, recruiters, and open-source enthusiasts. Contributions can include code improvements, documentation, bug fixes, feature requests, and community support.",
   },
 ];
 
