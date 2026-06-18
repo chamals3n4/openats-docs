@@ -76,7 +76,10 @@ export default function Home() {
               <Link className="btn-pill-primary" to="/docs/intro">
                 Get started
               </Link>
-              <Link className="btn-pill-secondary" to="#">
+              <Link
+                className="btn-pill-secondary"
+                to="https://demo.openats.dev"
+              >
                 Get a demo
               </Link>
             </div>
